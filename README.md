@@ -142,9 +142,12 @@ protected override void Up(MigrationBuilder migrationBuilder)
 - 現有專案不受影響
 
 ### 5. 測試結果
-- ProjectA 與 ProjecB 一個使用客製 Schema 一個使用預設 Schema 
+- ProjectA 與 ProjecB 一個使用客製 Schema 一個使用預設 Schema
+  
   ![Migration Result](./assets/result.png)
+  
 - ProjectA 的 Entity 和 ProjectC 的 Entity 名稱相同，但是屬性與欄位大小不同，分別使用不同的 Schema 來避免衝突
+  
   ![Compare Result](./assets/Compare.png)
 
 ## 注意事項
