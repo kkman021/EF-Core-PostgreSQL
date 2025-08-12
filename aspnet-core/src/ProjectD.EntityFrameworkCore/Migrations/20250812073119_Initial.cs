@@ -11,8 +11,12 @@ namespace ProjectD.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.EnsureSchema(
+                name: "ProjectD");
+
             migrationBuilder.CreateTable(
                 name: "AbpAuditLogExcelFiles",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -28,6 +32,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpAuditLogs",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -62,6 +67,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpBackgroundJobs",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -84,6 +90,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpClaimTypes",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -105,6 +112,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpFeatureGroups",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -119,6 +127,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpFeatures",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -141,6 +150,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpFeatureValues",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -156,6 +166,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpLinkUsers",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -171,6 +182,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpOrganizationUnits",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -195,12 +207,14 @@ namespace ProjectD.Migrations
                     table.ForeignKey(
                         name: "FK_AbpOrganizationUnits_AbpOrganizationUnits_ParentId",
                         column: x => x.ParentId,
+                        principalSchema: "ProjectD",
                         principalTable: "AbpOrganizationUnits",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
                 name: "AbpPermissionGrants",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -216,6 +230,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpPermissionGroups",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -230,6 +245,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpPermissions",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -250,6 +266,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpRoles",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -271,6 +288,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpSecurityLogs",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -296,6 +314,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpSessions",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -317,6 +336,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpSettingDefinitions",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -337,6 +357,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpSettings",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -352,6 +373,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpTenants",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -375,6 +397,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpUserDelegations",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -391,6 +414,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpUsers",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -432,6 +456,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "OpenIddictApplications",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -468,6 +493,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "OpenIddictScopes",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -495,6 +521,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpAuditLogActions",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -513,6 +540,7 @@ namespace ProjectD.Migrations
                     table.ForeignKey(
                         name: "FK_AbpAuditLogActions_AbpAuditLogs_AuditLogId",
                         column: x => x.AuditLogId,
+                        principalSchema: "ProjectD",
                         principalTable: "AbpAuditLogs",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -520,6 +548,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpEntityChanges",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -538,6 +567,7 @@ namespace ProjectD.Migrations
                     table.ForeignKey(
                         name: "FK_AbpEntityChanges_AbpAuditLogs_AuditLogId",
                         column: x => x.AuditLogId,
+                        principalSchema: "ProjectD",
                         principalTable: "AbpAuditLogs",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -545,6 +575,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpOrganizationUnitRoles",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     RoleId = table.Column<Guid>(type: "uuid", nullable: false),
@@ -559,12 +590,14 @@ namespace ProjectD.Migrations
                     table.ForeignKey(
                         name: "FK_AbpOrganizationUnitRoles_AbpOrganizationUnits_OrganizationU~",
                         column: x => x.OrganizationUnitId,
+                        principalSchema: "ProjectD",
                         principalTable: "AbpOrganizationUnits",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_AbpOrganizationUnitRoles_AbpRoles_RoleId",
                         column: x => x.RoleId,
+                        principalSchema: "ProjectD",
                         principalTable: "AbpRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -572,6 +605,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpRoleClaims",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -586,6 +620,7 @@ namespace ProjectD.Migrations
                     table.ForeignKey(
                         name: "FK_AbpRoleClaims_AbpRoles_RoleId",
                         column: x => x.RoleId,
+                        principalSchema: "ProjectD",
                         principalTable: "AbpRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -593,6 +628,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpTenantConnectionStrings",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     TenantId = table.Column<Guid>(type: "uuid", nullable: false),
@@ -605,6 +641,7 @@ namespace ProjectD.Migrations
                     table.ForeignKey(
                         name: "FK_AbpTenantConnectionStrings_AbpTenants_TenantId",
                         column: x => x.TenantId,
+                        principalSchema: "ProjectD",
                         principalTable: "AbpTenants",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -612,6 +649,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpUserClaims",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -626,6 +664,7 @@ namespace ProjectD.Migrations
                     table.ForeignKey(
                         name: "FK_AbpUserClaims_AbpUsers_UserId",
                         column: x => x.UserId,
+                        principalSchema: "ProjectD",
                         principalTable: "AbpUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -633,6 +672,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpUserLogins",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     UserId = table.Column<Guid>(type: "uuid", nullable: false),
@@ -647,6 +687,7 @@ namespace ProjectD.Migrations
                     table.ForeignKey(
                         name: "FK_AbpUserLogins_AbpUsers_UserId",
                         column: x => x.UserId,
+                        principalSchema: "ProjectD",
                         principalTable: "AbpUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -654,6 +695,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpUserOrganizationUnits",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     UserId = table.Column<Guid>(type: "uuid", nullable: false),
@@ -668,12 +710,14 @@ namespace ProjectD.Migrations
                     table.ForeignKey(
                         name: "FK_AbpUserOrganizationUnits_AbpOrganizationUnits_OrganizationU~",
                         column: x => x.OrganizationUnitId,
+                        principalSchema: "ProjectD",
                         principalTable: "AbpOrganizationUnits",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_AbpUserOrganizationUnits_AbpUsers_UserId",
                         column: x => x.UserId,
+                        principalSchema: "ProjectD",
                         principalTable: "AbpUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -681,6 +725,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpUserRoles",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     UserId = table.Column<Guid>(type: "uuid", nullable: false),
@@ -693,12 +738,14 @@ namespace ProjectD.Migrations
                     table.ForeignKey(
                         name: "FK_AbpUserRoles_AbpRoles_RoleId",
                         column: x => x.RoleId,
+                        principalSchema: "ProjectD",
                         principalTable: "AbpRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_AbpUserRoles_AbpUsers_UserId",
                         column: x => x.UserId,
+                        principalSchema: "ProjectD",
                         principalTable: "AbpUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -706,6 +753,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "AbpUserTokens",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     UserId = table.Column<Guid>(type: "uuid", nullable: false),
@@ -720,6 +768,7 @@ namespace ProjectD.Migrations
                     table.ForeignKey(
                         name: "FK_AbpUserTokens_AbpUsers_UserId",
                         column: x => x.UserId,
+                        principalSchema: "ProjectD",
                         principalTable: "AbpUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -727,6 +776,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "OpenIddictAuthorizations",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -746,12 +796,14 @@ namespace ProjectD.Migrations
                     table.ForeignKey(
                         name: "FK_OpenIddictAuthorizations_OpenIddictApplications_Application~",
                         column: x => x.ApplicationId,
+                        principalSchema: "ProjectD",
                         principalTable: "OpenIddictApplications",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
                 name: "AbpEntityPropertyChanges",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -768,6 +820,7 @@ namespace ProjectD.Migrations
                     table.ForeignKey(
                         name: "FK_AbpEntityPropertyChanges_AbpEntityChanges_EntityChangeId",
                         column: x => x.EntityChangeId,
+                        principalSchema: "ProjectD",
                         principalTable: "AbpEntityChanges",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -775,6 +828,7 @@ namespace ProjectD.Migrations
 
             migrationBuilder.CreateTable(
                 name: "OpenIddictTokens",
+                schema: "ProjectD",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -798,256 +852,305 @@ namespace ProjectD.Migrations
                     table.ForeignKey(
                         name: "FK_OpenIddictTokens_OpenIddictApplications_ApplicationId",
                         column: x => x.ApplicationId,
+                        principalSchema: "ProjectD",
                         principalTable: "OpenIddictApplications",
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_OpenIddictTokens_OpenIddictAuthorizations_AuthorizationId",
                         column: x => x.AuthorizationId,
+                        principalSchema: "ProjectD",
                         principalTable: "OpenIddictAuthorizations",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpAuditLogActions_AuditLogId",
+                schema: "ProjectD",
                 table: "AbpAuditLogActions",
                 column: "AuditLogId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpAuditLogActions_TenantId_ServiceName_MethodName_Executio~",
+                schema: "ProjectD",
                 table: "AbpAuditLogActions",
                 columns: new[] { "TenantId", "ServiceName", "MethodName", "ExecutionTime" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpAuditLogs_TenantId_ExecutionTime",
+                schema: "ProjectD",
                 table: "AbpAuditLogs",
                 columns: new[] { "TenantId", "ExecutionTime" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpAuditLogs_TenantId_UserId_ExecutionTime",
+                schema: "ProjectD",
                 table: "AbpAuditLogs",
                 columns: new[] { "TenantId", "UserId", "ExecutionTime" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpBackgroundJobs_IsAbandoned_NextTryTime",
+                schema: "ProjectD",
                 table: "AbpBackgroundJobs",
                 columns: new[] { "IsAbandoned", "NextTryTime" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpEntityChanges_AuditLogId",
+                schema: "ProjectD",
                 table: "AbpEntityChanges",
                 column: "AuditLogId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpEntityChanges_TenantId_EntityTypeFullName_EntityId",
+                schema: "ProjectD",
                 table: "AbpEntityChanges",
                 columns: new[] { "TenantId", "EntityTypeFullName", "EntityId" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpEntityPropertyChanges_EntityChangeId",
+                schema: "ProjectD",
                 table: "AbpEntityPropertyChanges",
                 column: "EntityChangeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpFeatureGroups_Name",
+                schema: "ProjectD",
                 table: "AbpFeatureGroups",
                 column: "Name",
                 unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpFeatures_GroupName",
+                schema: "ProjectD",
                 table: "AbpFeatures",
                 column: "GroupName");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpFeatures_Name",
+                schema: "ProjectD",
                 table: "AbpFeatures",
                 column: "Name",
                 unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpFeatureValues_Name_ProviderName_ProviderKey",
+                schema: "ProjectD",
                 table: "AbpFeatureValues",
                 columns: new[] { "Name", "ProviderName", "ProviderKey" },
                 unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpLinkUsers_SourceUserId_SourceTenantId_TargetUserId_Targe~",
+                schema: "ProjectD",
                 table: "AbpLinkUsers",
                 columns: new[] { "SourceUserId", "SourceTenantId", "TargetUserId", "TargetTenantId" },
                 unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpOrganizationUnitRoles_RoleId_OrganizationUnitId",
+                schema: "ProjectD",
                 table: "AbpOrganizationUnitRoles",
                 columns: new[] { "RoleId", "OrganizationUnitId" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpOrganizationUnits_Code",
+                schema: "ProjectD",
                 table: "AbpOrganizationUnits",
                 column: "Code");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpOrganizationUnits_ParentId",
+                schema: "ProjectD",
                 table: "AbpOrganizationUnits",
                 column: "ParentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpPermissionGrants_TenantId_Name_ProviderName_ProviderKey",
+                schema: "ProjectD",
                 table: "AbpPermissionGrants",
                 columns: new[] { "TenantId", "Name", "ProviderName", "ProviderKey" },
                 unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpPermissionGroups_Name",
+                schema: "ProjectD",
                 table: "AbpPermissionGroups",
                 column: "Name",
                 unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpPermissions_GroupName",
+                schema: "ProjectD",
                 table: "AbpPermissions",
                 column: "GroupName");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpPermissions_Name",
+                schema: "ProjectD",
                 table: "AbpPermissions",
                 column: "Name",
                 unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpRoleClaims_RoleId",
+                schema: "ProjectD",
                 table: "AbpRoleClaims",
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpRoles_NormalizedName",
+                schema: "ProjectD",
                 table: "AbpRoles",
                 column: "NormalizedName");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpSecurityLogs_TenantId_Action",
+                schema: "ProjectD",
                 table: "AbpSecurityLogs",
                 columns: new[] { "TenantId", "Action" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpSecurityLogs_TenantId_ApplicationName",
+                schema: "ProjectD",
                 table: "AbpSecurityLogs",
                 columns: new[] { "TenantId", "ApplicationName" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpSecurityLogs_TenantId_Identity",
+                schema: "ProjectD",
                 table: "AbpSecurityLogs",
                 columns: new[] { "TenantId", "Identity" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpSecurityLogs_TenantId_UserId",
+                schema: "ProjectD",
                 table: "AbpSecurityLogs",
                 columns: new[] { "TenantId", "UserId" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpSessions_Device",
+                schema: "ProjectD",
                 table: "AbpSessions",
                 column: "Device");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpSessions_SessionId",
+                schema: "ProjectD",
                 table: "AbpSessions",
                 column: "SessionId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpSessions_TenantId_UserId",
+                schema: "ProjectD",
                 table: "AbpSessions",
                 columns: new[] { "TenantId", "UserId" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpSettingDefinitions_Name",
+                schema: "ProjectD",
                 table: "AbpSettingDefinitions",
                 column: "Name",
                 unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpSettings_Name_ProviderName_ProviderKey",
+                schema: "ProjectD",
                 table: "AbpSettings",
                 columns: new[] { "Name", "ProviderName", "ProviderKey" },
                 unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpTenants_Name",
+                schema: "ProjectD",
                 table: "AbpTenants",
                 column: "Name");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpTenants_NormalizedName",
+                schema: "ProjectD",
                 table: "AbpTenants",
                 column: "NormalizedName");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpUserClaims_UserId",
+                schema: "ProjectD",
                 table: "AbpUserClaims",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpUserLogins_LoginProvider_ProviderKey",
+                schema: "ProjectD",
                 table: "AbpUserLogins",
                 columns: new[] { "LoginProvider", "ProviderKey" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpUserOrganizationUnits_UserId_OrganizationUnitId",
+                schema: "ProjectD",
                 table: "AbpUserOrganizationUnits",
                 columns: new[] { "UserId", "OrganizationUnitId" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpUserRoles_RoleId_UserId",
+                schema: "ProjectD",
                 table: "AbpUserRoles",
                 columns: new[] { "RoleId", "UserId" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpUsers_Email",
+                schema: "ProjectD",
                 table: "AbpUsers",
                 column: "Email");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpUsers_NormalizedEmail",
+                schema: "ProjectD",
                 table: "AbpUsers",
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpUsers_NormalizedUserName",
+                schema: "ProjectD",
                 table: "AbpUsers",
                 column: "NormalizedUserName");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpUsers_UserName",
+                schema: "ProjectD",
                 table: "AbpUsers",
                 column: "UserName");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OpenIddictApplications_ClientId",
+                schema: "ProjectD",
                 table: "OpenIddictApplications",
                 column: "ClientId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OpenIddictAuthorizations_ApplicationId_Status_Subject_Type",
+                schema: "ProjectD",
                 table: "OpenIddictAuthorizations",
                 columns: new[] { "ApplicationId", "Status", "Subject", "Type" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_OpenIddictScopes_Name",
+                schema: "ProjectD",
                 table: "OpenIddictScopes",
                 column: "Name");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OpenIddictTokens_ApplicationId_Status_Subject_Type",
+                schema: "ProjectD",
                 table: "OpenIddictTokens",
                 columns: new[] { "ApplicationId", "Status", "Subject", "Type" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_OpenIddictTokens_AuthorizationId",
+                schema: "ProjectD",
                 table: "OpenIddictTokens",
                 column: "AuthorizationId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OpenIddictTokens_ReferenceId",
+                schema: "ProjectD",
                 table: "OpenIddictTokens",
                 column: "ReferenceId");
         }
@@ -1056,109 +1159,144 @@ namespace ProjectD.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "AbpAuditLogActions");
+                name: "AbpAuditLogActions",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpAuditLogExcelFiles");
+                name: "AbpAuditLogExcelFiles",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpBackgroundJobs");
+                name: "AbpBackgroundJobs",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpClaimTypes");
+                name: "AbpClaimTypes",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpEntityPropertyChanges");
+                name: "AbpEntityPropertyChanges",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpFeatureGroups");
+                name: "AbpFeatureGroups",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpFeatures");
+                name: "AbpFeatures",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpFeatureValues");
+                name: "AbpFeatureValues",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpLinkUsers");
+                name: "AbpLinkUsers",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpOrganizationUnitRoles");
+                name: "AbpOrganizationUnitRoles",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpPermissionGrants");
+                name: "AbpPermissionGrants",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpPermissionGroups");
+                name: "AbpPermissionGroups",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpPermissions");
+                name: "AbpPermissions",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpRoleClaims");
+                name: "AbpRoleClaims",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpSecurityLogs");
+                name: "AbpSecurityLogs",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpSessions");
+                name: "AbpSessions",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpSettingDefinitions");
+                name: "AbpSettingDefinitions",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpSettings");
+                name: "AbpSettings",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpTenantConnectionStrings");
+                name: "AbpTenantConnectionStrings",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpUserClaims");
+                name: "AbpUserClaims",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpUserDelegations");
+                name: "AbpUserDelegations",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpUserLogins");
+                name: "AbpUserLogins",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpUserOrganizationUnits");
+                name: "AbpUserOrganizationUnits",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpUserRoles");
+                name: "AbpUserRoles",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpUserTokens");
+                name: "AbpUserTokens",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "OpenIddictScopes");
+                name: "OpenIddictScopes",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "OpenIddictTokens");
+                name: "OpenIddictTokens",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpEntityChanges");
+                name: "AbpEntityChanges",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpTenants");
+                name: "AbpTenants",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpOrganizationUnits");
+                name: "AbpOrganizationUnits",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpRoles");
+                name: "AbpRoles",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpUsers");
+                name: "AbpUsers",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "OpenIddictAuthorizations");
+                name: "OpenIddictAuthorizations",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "AbpAuditLogs");
+                name: "AbpAuditLogs",
+                schema: "ProjectD");
 
             migrationBuilder.DropTable(
-                name: "OpenIddictApplications");
+                name: "OpenIddictApplications",
+                schema: "ProjectD");
         }
     }
 }

@@ -19,7 +19,7 @@ public class ProjectDDbContextFactory : IDesignTimeDbContextFactory<ProjectDDbCo
         var builder = new DbContextOptionsBuilder<ProjectDDbContext>()
             .UseNpgsql(configuration.GetConnectionString("Default"));
 
-        return new ProjectDDbContext(builder.Options);
+        return new ProjectDDbContext(builder.Options, configuration);
     }
 
     private static IConfigurationRoot BuildConfiguration()

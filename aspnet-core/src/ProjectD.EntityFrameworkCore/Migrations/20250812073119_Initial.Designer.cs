@@ -13,7 +13,7 @@ using Volo.Abp.EntityFrameworkCore;
 namespace ProjectD.Migrations
 {
     [DbContext(typeof(ProjectDDbContext))]
-    [Migration("20250812072524_Initial")]
+    [Migration("20250812073119_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -21,6 +21,7 @@ namespace ProjectD.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasDefaultSchema("ProjectD")
                 .HasAnnotation("_Abp_DatabaseProvider", EfCoreDatabaseProvider.PostgreSql)
                 .HasAnnotation("ProductVersion", "9.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
@@ -146,7 +147,7 @@ namespace ProjectD.Migrations
 
                     b.HasIndex("TenantId", "UserId", "ExecutionTime");
 
-                    b.ToTable("AbpAuditLogs", (string)null);
+                    b.ToTable("AbpAuditLogs", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.AuditLogging.AuditLogAction", b =>
@@ -196,7 +197,7 @@ namespace ProjectD.Migrations
 
                     b.HasIndex("TenantId", "ServiceName", "MethodName", "ExecutionTime");
 
-                    b.ToTable("AbpAuditLogActions", (string)null);
+                    b.ToTable("AbpAuditLogActions", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.AuditLogging.AuditLogExcelFile", b =>
@@ -224,7 +225,7 @@ namespace ProjectD.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AbpAuditLogExcelFiles", (string)null);
+                    b.ToTable("AbpAuditLogExcelFiles", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.AuditLogging.EntityChange", b =>
@@ -273,7 +274,7 @@ namespace ProjectD.Migrations
 
                     b.HasIndex("TenantId", "EntityTypeFullName", "EntityId");
 
-                    b.ToTable("AbpEntityChanges", (string)null);
+                    b.ToTable("AbpEntityChanges", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.AuditLogging.EntityPropertyChange", b =>
@@ -315,7 +316,7 @@ namespace ProjectD.Migrations
 
                     b.HasIndex("EntityChangeId");
 
-                    b.ToTable("AbpEntityPropertyChanges", (string)null);
+                    b.ToTable("AbpEntityPropertyChanges", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.BackgroundJobs.BackgroundJobRecord", b =>
@@ -379,7 +380,7 @@ namespace ProjectD.Migrations
 
                     b.HasIndex("IsAbandoned", "NextTryTime");
 
-                    b.ToTable("AbpBackgroundJobs", (string)null);
+                    b.ToTable("AbpBackgroundJobs", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.FeatureManagement.FeatureDefinitionRecord", b =>
@@ -440,7 +441,7 @@ namespace ProjectD.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("AbpFeatures", (string)null);
+                    b.ToTable("AbpFeatures", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.FeatureManagement.FeatureGroupDefinitionRecord", b =>
@@ -468,7 +469,7 @@ namespace ProjectD.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("AbpFeatureGroups", (string)null);
+                    b.ToTable("AbpFeatureGroups", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.FeatureManagement.FeatureValue", b =>
@@ -500,7 +501,7 @@ namespace ProjectD.Migrations
                     b.HasIndex("Name", "ProviderName", "ProviderKey")
                         .IsUnique();
 
-                    b.ToTable("AbpFeatureValues", (string)null);
+                    b.ToTable("AbpFeatureValues", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.Identity.IdentityClaimType", b =>
@@ -552,7 +553,7 @@ namespace ProjectD.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AbpClaimTypes", (string)null);
+                    b.ToTable("AbpClaimTypes", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.Identity.IdentityLinkUser", b =>
@@ -577,7 +578,7 @@ namespace ProjectD.Migrations
                     b.HasIndex("SourceUserId", "SourceTenantId", "TargetUserId", "TargetTenantId")
                         .IsUnique();
 
-                    b.ToTable("AbpLinkUsers", (string)null);
+                    b.ToTable("AbpLinkUsers", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.Identity.IdentityRole", b =>
@@ -634,7 +635,7 @@ namespace ProjectD.Migrations
 
                     b.HasIndex("NormalizedName");
 
-                    b.ToTable("AbpRoles", (string)null);
+                    b.ToTable("AbpRoles", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.Identity.IdentityRoleClaim", b =>
@@ -662,7 +663,7 @@ namespace ProjectD.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AbpRoleClaims", (string)null);
+                    b.ToTable("AbpRoleClaims", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.Identity.IdentitySecurityLog", b =>
@@ -738,7 +739,7 @@ namespace ProjectD.Migrations
 
                     b.HasIndex("TenantId", "UserId");
 
-                    b.ToTable("AbpSecurityLogs", (string)null);
+                    b.ToTable("AbpSecurityLogs", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.Identity.IdentitySession", b =>
@@ -793,7 +794,7 @@ namespace ProjectD.Migrations
 
                     b.HasIndex("TenantId", "UserId");
 
-                    b.ToTable("AbpSessions", (string)null);
+                    b.ToTable("AbpSessions", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.Identity.IdentityUser", b =>
@@ -959,7 +960,7 @@ namespace ProjectD.Migrations
 
                     b.HasIndex("UserName");
 
-                    b.ToTable("AbpUsers", (string)null);
+                    b.ToTable("AbpUsers", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.Identity.IdentityUserClaim", b =>
@@ -987,7 +988,7 @@ namespace ProjectD.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AbpUserClaims", (string)null);
+                    b.ToTable("AbpUserClaims", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.Identity.IdentityUserDelegation", b =>
@@ -1013,7 +1014,7 @@ namespace ProjectD.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AbpUserDelegations", (string)null);
+                    b.ToTable("AbpUserDelegations", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.Identity.IdentityUserLogin", b =>
@@ -1042,7 +1043,7 @@ namespace ProjectD.Migrations
 
                     b.HasIndex("LoginProvider", "ProviderKey");
 
-                    b.ToTable("AbpUserLogins", (string)null);
+                    b.ToTable("AbpUserLogins", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.Identity.IdentityUserOrganizationUnit", b =>
@@ -1069,7 +1070,7 @@ namespace ProjectD.Migrations
 
                     b.HasIndex("UserId", "OrganizationUnitId");
 
-                    b.ToTable("AbpUserOrganizationUnits", (string)null);
+                    b.ToTable("AbpUserOrganizationUnits", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.Identity.IdentityUserRole", b =>
@@ -1088,7 +1089,7 @@ namespace ProjectD.Migrations
 
                     b.HasIndex("RoleId", "UserId");
 
-                    b.ToTable("AbpUserRoles", (string)null);
+                    b.ToTable("AbpUserRoles", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.Identity.IdentityUserToken", b =>
@@ -1113,7 +1114,7 @@ namespace ProjectD.Migrations
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("AbpUserTokens", (string)null);
+                    b.ToTable("AbpUserTokens", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.Identity.OrganizationUnit", b =>
@@ -1191,7 +1192,7 @@ namespace ProjectD.Migrations
 
                     b.HasIndex("ParentId");
 
-                    b.ToTable("AbpOrganizationUnits", (string)null);
+                    b.ToTable("AbpOrganizationUnits", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.Identity.OrganizationUnitRole", b =>
@@ -1218,7 +1219,7 @@ namespace ProjectD.Migrations
 
                     b.HasIndex("RoleId", "OrganizationUnitId");
 
-                    b.ToTable("AbpOrganizationUnitRoles", (string)null);
+                    b.ToTable("AbpOrganizationUnitRoles", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.OpenIddict.Applications.OpenIddictApplication", b =>
@@ -1325,7 +1326,7 @@ namespace ProjectD.Migrations
 
                     b.HasIndex("ClientId");
 
-                    b.ToTable("OpenIddictApplications", (string)null);
+                    b.ToTable("OpenIddictApplications", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.OpenIddict.Authorizations.OpenIddictAuthorization", b =>
@@ -1374,7 +1375,7 @@ namespace ProjectD.Migrations
 
                     b.HasIndex("ApplicationId", "Status", "Subject", "Type");
 
-                    b.ToTable("OpenIddictAuthorizations", (string)null);
+                    b.ToTable("OpenIddictAuthorizations", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.OpenIddict.Scopes.OpenIddictScope", b =>
@@ -1451,7 +1452,7 @@ namespace ProjectD.Migrations
 
                     b.HasIndex("Name");
 
-                    b.ToTable("OpenIddictScopes", (string)null);
+                    b.ToTable("OpenIddictScopes", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.OpenIddict.Tokens.OpenIddictToken", b =>
@@ -1517,7 +1518,7 @@ namespace ProjectD.Migrations
 
                     b.HasIndex("ApplicationId", "Status", "Subject", "Type");
 
-                    b.ToTable("OpenIddictTokens", (string)null);
+                    b.ToTable("OpenIddictTokens", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.PermissionManagement.PermissionDefinitionRecord", b =>
@@ -1570,7 +1571,7 @@ namespace ProjectD.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("AbpPermissions", (string)null);
+                    b.ToTable("AbpPermissions", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.PermissionManagement.PermissionGrant", b =>
@@ -1603,7 +1604,7 @@ namespace ProjectD.Migrations
                     b.HasIndex("TenantId", "Name", "ProviderName", "ProviderKey")
                         .IsUnique();
 
-                    b.ToTable("AbpPermissionGrants", (string)null);
+                    b.ToTable("AbpPermissionGrants", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.PermissionManagement.PermissionGroupDefinitionRecord", b =>
@@ -1631,7 +1632,7 @@ namespace ProjectD.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("AbpPermissionGroups", (string)null);
+                    b.ToTable("AbpPermissionGroups", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.SettingManagement.Setting", b =>
@@ -1663,7 +1664,7 @@ namespace ProjectD.Migrations
                     b.HasIndex("Name", "ProviderName", "ProviderKey")
                         .IsUnique();
 
-                    b.ToTable("AbpSettings", (string)null);
+                    b.ToTable("AbpSettings", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.SettingManagement.SettingDefinitionRecord", b =>
@@ -1712,7 +1713,7 @@ namespace ProjectD.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("AbpSettingDefinitions", (string)null);
+                    b.ToTable("AbpSettingDefinitions", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.TenantManagement.Tenant", b =>
@@ -1781,7 +1782,7 @@ namespace ProjectD.Migrations
 
                     b.HasIndex("NormalizedName");
 
-                    b.ToTable("AbpTenants", (string)null);
+                    b.ToTable("AbpTenants", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.TenantManagement.TenantConnectionString", b =>
@@ -1800,7 +1801,7 @@ namespace ProjectD.Migrations
 
                     b.HasKey("TenantId", "Name");
 
-                    b.ToTable("AbpTenantConnectionStrings", (string)null);
+                    b.ToTable("AbpTenantConnectionStrings", "ProjectD");
                 });
 
             modelBuilder.Entity("Volo.Abp.AuditLogging.AuditLogAction", b =>

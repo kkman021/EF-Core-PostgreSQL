@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Uow;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
@@ -45,9 +46,22 @@ public class ProjectDEntityFrameworkCoreModule : AbpModule
 
         Configure<AbpDbContextOptions>(options =>
         {
-                /* The main point to change your DBMS.
-                 * See also ProjectDMigrationsDbContextFactory for EF Core tooling. */
-            options.UseNpgsql();
+            /* The main point to change your DBMS.
+             * See also ProjectDMigrationsDbContextFactory for EF Core tooling. */
+            var configuration = context.Services.GetConfiguration();
+            var customSchemaName = configuration["CustomSchemaName"];
+            
+            options.UseNpgsql(npgsqlOptions =>
+            {
+                if (!string.IsNullOrEmpty(customSchemaName))
+                {
+                    npgsqlOptions.MigrationsHistoryTable("__EFMigrationsHistoryProjectD", customSchemaName);
+                }
+                else
+                {
+                    npgsqlOptions.MigrationsHistoryTable("__EFMigrationsHistoryProjectD");
+                }
+            });
         });
 
     }

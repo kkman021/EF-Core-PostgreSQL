@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.Data;
@@ -53,14 +54,23 @@ public class ProjectDDbContext :
 
     #endregion
 
-    public ProjectDDbContext(DbContextOptions<ProjectDDbContext> options)
+    private readonly IConfiguration _configuration;
+
+    public ProjectDDbContext(DbContextOptions<ProjectDDbContext> options, IConfiguration configuration)
         : base(options)
     {
-
+        _configuration = configuration;
     }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+        // 直接從 Configuration 讀取 CustomSchemaName
+        var customSchemaName = _configuration?["CustomSchemaName"];
+        if (!string.IsNullOrWhiteSpace(customSchemaName))
+        {
+            builder.HasDefaultSchema(customSchemaName);
+        }
+
         base.OnModelCreating(builder);
 
         /* Include modules to your migration db context */
