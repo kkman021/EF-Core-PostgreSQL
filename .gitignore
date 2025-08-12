@@ -485,4 +485,9 @@ $RECYCLE.BIN/
 OidcServer/OidcServerDb.sqlite
 *.sqlite-shm
 *.sqlite-wal
-.vscode
+/.claude
+/.vscode
+/.idea
+/.claude
+/.idea
+/.vscode
