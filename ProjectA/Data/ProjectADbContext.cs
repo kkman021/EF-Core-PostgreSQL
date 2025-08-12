@@ -5,9 +5,12 @@ namespace ProjectA.Data
 {
     public class ProjectADbContext : DbContext
     {
-        public ProjectADbContext(DbContextOptions<ProjectADbContext> options)
+        private readonly IConfiguration _configuration;
+
+        public ProjectADbContext(DbContextOptions<ProjectADbContext> options, IConfiguration configuration)
             : base(options)
         {
+            _configuration = configuration;
         }
 
         public DbSet<Client> Clients { get; set; }
@@ -15,6 +18,13 @@ namespace ProjectA.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // 直接從 Configuration 讀取 CustomSchemaName
+            var customSchemaName = _configuration["CustomSchemaName"];
+            if(!string.IsNullOrWhiteSpace(customSchemaName))
+            {
+                modelBuilder.HasDefaultSchema(customSchemaName);
+            }
+
             base.OnModelCreating(modelBuilder);
 
             // Configure relationships
@@ -24,9 +34,9 @@ namespace ProjectA.Data
                 .HasForeignKey(t => t.ClientId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // Set schema for ProjectA tables (optional but helps distinguish between projects)
-            modelBuilder.Entity<Client>().ToTable("Clients", "ProjectA");
-            modelBuilder.Entity<TokenManager>().ToTable("TokenManagers", "ProjectA");
+            // Set table names (schema will be applied by HasDefaultSchema)
+            modelBuilder.Entity<Client>().ToTable("Clients");
+            modelBuilder.Entity<TokenManager>().ToTable("TokenManagers");
         }
     }
 }

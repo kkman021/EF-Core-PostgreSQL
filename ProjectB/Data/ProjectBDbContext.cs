@@ -5,9 +5,12 @@ namespace ProjectB.Data
 {
     public class ProjectBDbContext : DbContext
     {
-        public ProjectBDbContext(DbContextOptions<ProjectBDbContext> options)
+        private readonly IConfiguration _configuration;
+
+        public ProjectBDbContext(DbContextOptions<ProjectBDbContext> options, IConfiguration configuration)
             : base(options)
         {
+            _configuration = configuration;
         }
 
         public DbSet<MailTemplate> MailTemplates { get; set; }
@@ -15,11 +18,18 @@ namespace ProjectB.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // 直接從 Configuration 讀取 CustomSchemaName
+            var customSchemaName = _configuration["CustomSchemaName"];
+            if(!string.IsNullOrWhiteSpace(customSchemaName))
+            {
+                modelBuilder.HasDefaultSchema(customSchemaName);
+            }
+
             base.OnModelCreating(modelBuilder);
 
-            // Set schema for ProjectB tables (optional but helps distinguish between projects)
-            modelBuilder.Entity<MailTemplate>().ToTable("MailTemplates", "ProjectB");
-            modelBuilder.Entity<SMSConfig>().ToTable("SMSConfigs", "ProjectB");
+            // Set table names (schema will be applied by HasDefaultSchema)
+            modelBuilder.Entity<MailTemplate>().ToTable("MailTemplates");
+            modelBuilder.Entity<SMSConfig>().ToTable("SMSConfigs");
         }
     }
 }

@@ -165,3 +165,5 @@ C:\Works\Demo\ProjectB\obj\Debug\net9.0\refint\ProjectB.dll
 C:\Works\Demo\ProjectB\obj\Debug\net9.0\ProjectB.pdb
 C:\Works\Demo\ProjectB\obj\Debug\net9.0\ProjectB.genruntimeconfig.cache
 C:\Works\Demo\ProjectB\obj\Debug\net9.0\ref\ProjectB.dll
+C:\Works\Demo\projectB\bin\Debug\net9.0\Npgsql.dll
+C:\Works\Demo\projectB\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
